@@ -64,7 +64,7 @@ async function init() {
     $('#se-progress').textContent = `${forward.processedDraws}/${forward.targetDraws}`;
     const best = [...lotto.methods].sort((a, b) => b.totalHits - a.totalHits)[0];
     $('#best-hit').textContent = modelLabels[best.name] || best.name;
-    $('#best-hit-note').textContent = `${best.totalHits.toLocaleString('it-IT')} hit su ${lotto.coverage.testedWheelDraws.toLocaleString('it-IT')} test ruota-data`;
+    $('#best-hit-note').textContent = `${best.totalHits.toLocaleString('it-IT')} numeri centrati nello storico`;
     $('#wheel').innerHTML = lotto.next.map((row) => `<option>${row.wheel}</option>`).join('');
     $('#wheel').addEventListener('change', renderPicks);
     renderModels(); renderPicks();
