@@ -31,6 +31,7 @@ function renderPicks() {
   $('#picks').innerHTML = numbers.map((number) => `<span class="pick">${String(number).padStart(2, '0')}</span>`).join('');
   renderHistoryChecks(wheel, numbers);
   renderMovement(wheel);
+  renderStats(wheel);
 }
 
 function checkNumbers(rows, numbers, getActual, label) {
@@ -79,6 +80,47 @@ function renderMovement(wheel) {
   $('#latest-numbers').innerHTML = latest.actual.map((number) => `<span>${String(number).padStart(2, '0')}</span>`).join('');
   $('#recent-12').innerHTML = frequencyRows(rows, 12, 8);
   $('#recent-52').innerHTML = frequencyRows(rows, 52, 10);
+}
+
+function normalTail(z) {
+  const t = 1 / (1 + 0.2316419 * Math.abs(z));
+  const d = 0.3989423 * Math.exp(-z * z / 2);
+  const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+  return z >= 0 ? p : 1 - p;
+}
+
+function renderStats(wheel) {
+  const rows = lottoInnerRows().filter((row) => row.wheel === wheel);
+  if (!rows.length) return;
+  const recent = rows.slice(-52);
+  const values = recent.flatMap((row) => row.actual);
+  const sumMean = values.reduce((total, value) => total + value, 0) / recent.length;
+  const evenMean = values.filter((value) => value % 2 === 0).length / recent.length;
+  const distinct = new Set(values).size;
+  let overlaps = 0;
+  for (let index = 1; index < recent.length; index += 1) {
+    overlaps += recent[index].actual.filter((number) => recent[index - 1].actual.includes(number)).length;
+  }
+  const overlapMean = overlaps / Math.max(1, recent.length - 1);
+  const expectedSum = 5 * 91 / 2;
+  const counts = Array.from({ length: 90 }, () => 0);
+  rows.forEach((row) => row.actual.forEach((number) => { counts[number - 1] += 1; }));
+  const expected = (rows.length * 5) / 90;
+  const chiSquare = counts.reduce((total, count) => total + ((count - expected) ** 2) / expected, 0);
+  const degrees = 89;
+  const z = ((chiSquare / degrees) ** (1 / 3) - (1 - 2 / (9 * degrees))) / Math.sqrt(2 / (9 * degrees));
+  const pApprox = Math.max(0, Math.min(1, normalTail(z)));
+  const min = Math.min(...counts);
+  const max = Math.max(...counts);
+  $('#stats-sample').textContent = `${rows.length} estrazioni`;
+  $('#stats-cards').innerHTML = [
+    ['Copertura recente', `${distinct}/90`, 'numeri distinti nelle ultime 52'],
+    ['Somma media', sumMean.toFixed(1), `atteso teorico ${expectedSum.toFixed(1)}`],
+    ['Pari medi', evenMean.toFixed(2), 'atteso teorico 2,50 per estrazione'],
+    ['Sovrapposizione', overlapMean.toFixed(2), 'numeri ripetuti tra estrazioni consecutive'],
+  ].map(([label, value, note]) => `<article class="stats-card"><span>${label}</span><strong>${value}</strong><small>${note}</small></article>`).join('');
+  $('#stats-uniformity').innerHTML = `<strong>χ² = ${chiSquare.toFixed(1)}</strong> su ${degrees} gradi di libertà; p approssimato ${pApprox.toFixed(3)}. Frequenze osservate: da ${min} a ${max} uscite per numero.`;
+  $('#stats-overlap').innerHTML = `<strong>Baseline di sovrapposizione:</strong> con due cinquine casuali su 90 numeri l'atteso è circa 0,28; il campione recente della ruota mostra ${overlapMean.toFixed(2)}.`;
 }
 
 async function init() {
