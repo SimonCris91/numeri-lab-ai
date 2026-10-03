@@ -1,0 +1,282 @@
+{
+  "recordedAt": "2026-10-01T19:04:36.197Z",
+  "sourceStatus": "USER_SCREENSHOT_OFFICIAL_VERIFICATION_PENDING",
+  "before": {
+    "integrated": "{\n  \"status\": \"READY\",\n  \"createdAt\": \"2026-09-29T20:49:15.106Z\",\n  \"startsAfterDrawDate\": \"2026-09-29\",\n  \"protocolRevision\": 1,\n  \"targetDraws\": 100,\n  \"processedDraws\": 0,\n  \"stakePerCombination\": 1,\n  \"stakeIsSimulated\": true,\n  \"model\": {\n    \"name\": \"integrated_12_52_104_208_z_decade_cap_3\",\n    \"windows\": [\n      12,\n      52,\n      104,\n      208\n    ],\n    \"scoring\": \"Per ogni numero, media non pesata dei quattro z-score di frequenza; p nulla per estrazione = 6/90; varianza binomiale per numero = W*p*(1-p).\",\n    \"optimizer\": \"Selezione esatta del massimo punteggio additivo con massimo 3 numeri per decade; greedy ottimo perché l’unico vincolo è un limite superiore per gruppo.\",\n    \"pairFeatures\": \"Nessun bonus di co-occorrenza: nel precedente audit omnibus la massima coppia non ha superato il nullo corretto per selezione.\",\n    \"lookAhead\": false,\n    \"midTestParameterChanges\": false,\n    \"tieBreak\": \"punteggio decrescente, poi numero crescente\"\n  },\n  \"comparators\": {\n    \"activeBaseline\": {\n      \"name\": \"frequency_52_decade_cap_3\",\n      \"existingProtocolPath\": \"C:\\\\Users\\\\simon\\\\Documents\\\\Codex\\\\superenalotto-forward-test.json\",\n      \"nextPrediction\": [2, 8, 12, 16, 28, 85]\n    },\n    \"randomBaseline\": {\n      \"name\": \"uniform_random_ticket\",\n      \"generator\": \"Mulberry32 + Floyd uniform-subset sampler; six PRNG outputs consumed per draw\",\n      \"seed\": 20260930,\n      \"nextPrediction\": [19, 61, 73, 78, 87, 88]\n    },\n    \"multiplicity\": \"Confronto prospettico delle due strategie predittive sulla stessa serie; correzione Holm se si seleziona la migliore.\"\n  },\n  \"nextPrediction\": [\n    2,\n    7,\n    12,\n    18,\n    28,\n    85\n  ],\n  \"results\": [],\n  \"acceptanceCriteria\": {\n    \"referenceMeanHitsPerCombination\": 0.4,\n    \"equalBudget\": \"una sestina integrata e un riferimento casuale per ciascuna estrazione\",\n    \"noMidTestParameterChanges\": true,\n    \"pairedComparison\": \"Registrare gli hit delle due strategie sulla stessa estrazione e correggere per confronti multipli.\",\n    \"interpretation\": \"test prospettico esplorativo; non attribuire vantaggio predittivo o profitto senza evidenza sufficiente e replicazione\"\n  }\n}\n",
+    "baseline": "{\n  \"status\": \"ACTIVE\",\n  \"startedAt\": \"2026-09-27\",\n  \"protocolRevision\": 2,\n  \"revisionReason\": \"Corretto lo spareggio deterministico tra sestine a pari punteggio; rieseguita la selezione train/validation senza usare l'holdout.\",\n  \"targetDraws\": 100,\n  \"processedDraws\": 1,\n  \"lastProcessedDraw\": \"2026-09-29\",\n  \"stakePerCombination\": 1,\n  \"strategy\": {\n    \"name\": \"decades_constraint_frequency_52\",\n    \"frequencyWindow\": 52,\n    \"constraints\": {\"maxNumbersPerDecade\": 3},\n    \"selection\": \"highest additive frequency score among combinations satisfying the frozen decade constraint; selected on train/validation only\",\n    \"lookAhead\": false,\n    \"midTestParameterChanges\": false\n  },\n  \"nextPrediction\": [2, 8, 12, 16, 28, 85],\n  \"results\": [\n    {\n      \"drawDate\": \"2026-09-29\",\n      \"contest\": 156,\n      \"prediction\": [2, 7, 8, 12, 16, 85],\n      \"draw\": [16, 26, 28, 30, 43, 72],\n      \"jolly\": 5,\n      \"superstar\": 32,\n      \"mainHits\": 1,\n      \"category\": \"1\",\n      \"stake\": 1,\n      \"grossReturn\": 0,\n      \"netProfit\": -1\n    }\n  ],\n  \"acceptanceCriteria\": {\n    \"referenceMeanHits\": 0.4,\n    \"referenceStakeReturn\": 1,\n    \"interpretation\": \"The test is exploratory and cannot establish predictive power without a materially larger independent sample.\"\n  }\n}\n"
+  },
+  "update": {
+    "integrated": {
+      "status": "ACTIVE",
+      "createdAt": "2026-09-29T20:49:15.106Z",
+      "startsAfterDrawDate": "2026-09-29",
+      "protocolRevision": 1,
+      "targetDraws": 100,
+      "processedDraws": 1,
+      "stakePerCombination": 1,
+      "stakeIsSimulated": true,
+      "model": {
+        "name": "integrated_12_52_104_208_z_decade_cap_3",
+        "windows": [
+          12,
+          52,
+          104,
+          208
+        ],
+        "scoring": "Per ogni numero, media non pesata dei quattro z-score di frequenza; p nulla per estrazione = 6/90; varianza binomiale per numero = W*p*(1-p).",
+        "optimizer": "Selezione esatta del massimo punteggio additivo con massimo 3 numeri per decade; greedy ottimo perché l’unico vincolo è un limite superiore per gruppo.",
+        "pairFeatures": "Nessun bonus di co-occorrenza: nel precedente audit omnibus la massima coppia non ha superato il nullo corretto per selezione.",
+        "lookAhead": false,
+        "midTestParameterChanges": false,
+        "tieBreak": "punteggio decrescente, poi numero crescente"
+      },
+      "comparators": {
+        "activeBaseline": {
+          "name": "frequency_52_decade_cap_3",
+          "existingProtocolPath": "C:\\Users\\simon\\Documents\\Codex\\superenalotto-forward-test.json",
+          "nextPrediction": [
+            2,
+            8,
+            12,
+            16,
+            28,
+            85
+          ]
+        },
+        "randomBaseline": {
+          "name": "uniform_random_ticket",
+          "generator": "Mulberry32 + Floyd uniform-subset sampler; six PRNG outputs consumed per draw",
+          "seed": 20260930,
+          "nextPrediction": [
+            14,
+            27,
+            64,
+            71,
+            72,
+            76
+          ]
+        },
+        "multiplicity": "Confronto prospettico delle due strategie predittive sulla stessa serie; correzione Holm se si seleziona la migliore."
+      },
+      "nextPrediction": [
+        7,
+        12,
+        16,
+        18,
+        28,
+        85
+      ],
+      "results": [
+        {
+          "drawDate": "2026-10-01",
+          "contest": 157,
+          "prediction": [
+            2,
+            7,
+            12,
+            18,
+            28,
+            85
+          ],
+          "draw": [
+            5,
+            12,
+            28,
+            41,
+            56,
+            66
+          ],
+          "jolly": 73,
+          "superstar": 42,
+          "mainHits": 2,
+          "category": "2",
+          "stake": 1,
+          "grossReturn": null,
+          "netProfit": null,
+          "payoutStatus": "PENDING_OFFICIAL_QUOTA",
+          "source": {
+            "type": "USER_PROVIDED_SCREENSHOT",
+            "path": "C:/Users/simon/AppData/Local/Temp/codex-clipboard-4f99403a-711b-487b-aede-720886176c8c.png",
+            "officialVerification": "PENDING",
+            "officialQuota": null
+          },
+          "comparators": {
+            "frequency52": {
+              "drawDate": "2026-10-01",
+              "contest": 157,
+              "prediction": [
+                2,
+                8,
+                12,
+                16,
+                28,
+                85
+              ],
+              "draw": [
+                5,
+                12,
+                28,
+                41,
+                56,
+                66
+              ],
+              "jolly": 73,
+              "superstar": 42,
+              "mainHits": 2,
+              "category": "2",
+              "stake": 1,
+              "grossReturn": null,
+              "netProfit": null,
+              "payoutStatus": "PENDING_OFFICIAL_QUOTA",
+              "source": {
+                "type": "USER_PROVIDED_SCREENSHOT",
+                "path": "C:/Users/simon/AppData/Local/Temp/codex-clipboard-4f99403a-711b-487b-aede-720886176c8c.png",
+                "officialVerification": "PENDING",
+                "officialQuota": null
+              }
+            },
+            "random": {
+              "drawDate": "2026-10-01",
+              "contest": 157,
+              "prediction": [
+                19,
+                61,
+                73,
+                78,
+                87,
+                88
+              ],
+              "draw": [
+                5,
+                12,
+                28,
+                41,
+                56,
+                66
+              ],
+              "jolly": 73,
+              "superstar": 42,
+              "mainHits": 0,
+              "category": "0",
+              "stake": 1,
+              "grossReturn": 0,
+              "netProfit": -1,
+              "payoutStatus": "NO_MAIN_PRIZE",
+              "source": {
+                "type": "USER_PROVIDED_SCREENSHOT",
+                "path": "C:/Users/simon/AppData/Local/Temp/codex-clipboard-4f99403a-711b-487b-aede-720886176c8c.png",
+                "officialVerification": "PENDING",
+                "officialQuota": null
+              }
+            }
+          }
+        }
+      ],
+      "acceptanceCriteria": {
+        "referenceMeanHitsPerCombination": 0.4,
+        "equalBudget": "una sestina integrata e un riferimento casuale per ciascuna estrazione",
+        "noMidTestParameterChanges": true,
+        "pairedComparison": "Registrare gli hit delle due strategie sulla stessa estrazione e correggere per confronti multipli.",
+        "interpretation": "test prospettico esplorativo; non attribuire vantaggio predittivo o profitto senza evidenza sufficiente e replicazione"
+      },
+      "lastProcessedDraw": "2026-10-01"
+    },
+    "baseline": {
+      "status": "ACTIVE",
+      "startedAt": "2026-09-27",
+      "protocolRevision": 2,
+      "revisionReason": "Corretto lo spareggio deterministico tra sestine a pari punteggio; rieseguita la selezione train/validation senza usare l'holdout.",
+      "targetDraws": 100,
+      "processedDraws": 2,
+      "lastProcessedDraw": "2026-10-01",
+      "stakePerCombination": 1,
+      "strategy": {
+        "name": "decades_constraint_frequency_52",
+        "frequencyWindow": 52,
+        "constraints": {
+          "maxNumbersPerDecade": 3
+        },
+        "selection": "highest additive frequency score among combinations satisfying the frozen decade constraint; selected on train/validation only",
+        "lookAhead": false,
+        "midTestParameterChanges": false
+      },
+      "nextPrediction": [
+        2,
+        8,
+        12,
+        16,
+        28,
+        85
+      ],
+      "results": [
+        {
+          "drawDate": "2026-09-29",
+          "contest": 156,
+          "prediction": [
+            2,
+            7,
+            8,
+            12,
+            16,
+            85
+          ],
+          "draw": [
+            16,
+            26,
+            28,
+            30,
+            43,
+            72
+          ],
+          "jolly": 5,
+          "superstar": 32,
+          "mainHits": 1,
+          "category": "1",
+          "stake": 1,
+          "grossReturn": 0,
+          "netProfit": -1
+        },
+        {
+          "drawDate": "2026-10-01",
+          "contest": 157,
+          "prediction": [
+            2,
+            8,
+            12,
+            16,
+            28,
+            85
+          ],
+          "draw": [
+            5,
+            12,
+            28,
+            41,
+            56,
+            66
+          ],
+          "jolly": 73,
+          "superstar": 42,
+          "mainHits": 2,
+          "category": "2",
+          "stake": 1,
+          "grossReturn": null,
+          "netProfit": null,
+          "payoutStatus": "PENDING_OFFICIAL_QUOTA",
+          "source": {
+            "type": "USER_PROVIDED_SCREENSHOT",
+            "path": "C:/Users/simon/AppData/Local/Temp/codex-clipboard-4f99403a-711b-487b-aede-720886176c8c.png",
+            "officialVerification": "PENDING",
+            "officialQuota": null
+          }
+        }
+      ],
+      "acceptanceCriteria": {
+        "referenceMeanHits": 0.4,
+        "referenceStakeReturn": 1,
+        "interpretation": "The test is exploratory and cannot establish predictive power without a materially larger independent sample."
+      }
+    },
+    "alreadyProcessed": false
+  }
+}

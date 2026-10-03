@@ -1,0 +1,33 @@
+{
+  "revision": 1,
+  "scope": "Exploratory astronomy/date-conditioned number frequencies, not validation of any astrology tradition or causal mechanism",
+  "timeConvention": "20:00 Europe/Rome for every historical date; nominal proxy, actual historical draw instants not verified",
+  "historyWindow": 208,
+  "shrinkageDraws": 30,
+  "ticketSize": 6,
+  "tieBreak": "score descending, number ascending",
+  "decadeCap": 3,
+  "lookAhead": false,
+  "models": [
+    {"name":"moon_phase_8", "features":["MoonPhase"], "bins":8},
+    {"name":"sun_sector_12", "features":["Sun"], "bins":12},
+    {"name":"inner_planets_12", "features":["Mercury","Venus","Mars"], "bins":12},
+    {"name":"outer_planets_12", "features":["Jupiter","Saturn","Uranus","Neptune"], "bins":12},
+    {"name":"mercury_venus_aspect", "features":["MercuryVenusAspect"], "bins":5}
+  ],
+  "aspectDefinition": "Geocentric longitude separation folded to 0..180 degrees. Bins: within 6 degrees of 0, 90, 120, 180; otherwise fifth bin. Some bins may be empty due to physical geometry; no thresholds retuned.",
+  "scoring": "For each feature and current bin: (number occurrences in that bin + 30 * unconditional trailing-208 frequency) / (draws in bin + 30). Average over features of a model. Maximum 3 numbers per decade.",
+  "circularShiftReplicates": 199,
+  "nullReplicates": 20000,
+  "seed": 20261002,
+  "multiplicity": "Holm across ten upper-tail comparisons: five exact uniform-null and five circular-feature-shift tests. Historical searches before this experiment remain uncorrected.",
+  "library": {
+    "name": "astronomy-engine",
+    "version": "2.1.19",
+    "url": "https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.js",
+    "sha256": "729c0ce37cc1a8096034a689039a5f04585ee8184177c638e8c74dec4fa3185a",
+    "documentation": "https://github.com/cosinekitty/astronomy/blob/master/source/js/README.md"
+  },
+  "excluded": ["Jolly", "SuperStar", "monetary returns", "fixed stars", "birth charts", "sidereal zodiac", "numerology"],
+  "prospectivePolicy": "No model selected automatically from historical best score. No modifications to existing forward tests. A future astronomy protocol requires explicit separate selection before its first draw."
+}

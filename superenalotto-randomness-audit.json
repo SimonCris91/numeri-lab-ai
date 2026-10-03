@@ -1,0 +1,263 @@
+{
+  "coverage": {
+    "firstDate": "2022-09-27",
+    "lastDate": "2026-09-29",
+    "draws": 796,
+    "rawRows": 796,
+    "duplicateDateRows": 0,
+    "conflictingDuplicateDates": 0,
+    "invalidDrawRows": 0
+  },
+  "marginalFrequencyTest": {
+    "statistic": "Pearson omnibus: somma degli scarti quadratici standardizzati sui 90 numeri",
+    "expectedCountPerNumber": 53.06666666666667,
+    "observedPearsonStatistic": 76.34924623115576,
+    "nullPearsonP05": 64.59045226130651,
+    "nullPearsonMedian": 83.43467336683415,
+    "nullPearsonP95": 105.29396984924625,
+    "monteCarloLowerTailP": 0.2784860756962152,
+    "monteCarloUpperTailP": 0.7223638818059097,
+    "monteCarloTwoSidedP": 0.5569721513924304,
+    "observedMaxAbsoluteDeviation": 13.06666666666667,
+    "observedMinimumFrequency": 40,
+    "observedMaximumFrequency": 66,
+    "null5thPercentileMaxDeviation": 14.93333333333333,
+    "null95thPercentileMaxDeviation": 24.93333333333333,
+    "simulations": 20000,
+    "independentVerification": {
+      "sampler": "Floyd uniform-subset sampler with independent xorshift32 PRNG",
+      "simulations": 20000,
+      "lowerTailP": 0.2782360881955902,
+      "upperTailP": 0.7232138393080346,
+      "twoSidedP": 0.5564721763911804,
+      "nullPearsonP05": 64.62814070351754,
+      "nullPearsonMedian": 83.47236180904525,
+      "nullPearsonP95": 105.44472361809048
+    },
+    "topNumbers": [
+      {
+        "number": 23,
+        "count": 66,
+        "deviationFromMean": 12.93333333333333
+      },
+      {
+        "number": 85,
+        "count": 66,
+        "deviationFromMean": 12.93333333333333
+      },
+      {
+        "number": 73,
+        "count": 65,
+        "deviationFromMean": 11.93333333333333
+      },
+      {
+        "number": 6,
+        "count": 64,
+        "deviationFromMean": 10.93333333333333
+      },
+      {
+        "number": 41,
+        "count": 64,
+        "deviationFromMean": 10.93333333333333
+      },
+      {
+        "number": 42,
+        "count": 64,
+        "deviationFromMean": 10.93333333333333
+      },
+      {
+        "number": 63,
+        "count": 64,
+        "deviationFromMean": 10.93333333333333
+      },
+      {
+        "number": 28,
+        "count": 63,
+        "deviationFromMean": 9.93333333333333
+      },
+      {
+        "number": 40,
+        "count": 63,
+        "deviationFromMean": 9.93333333333333
+      },
+      {
+        "number": 52,
+        "count": 63,
+        "deviationFromMean": 9.93333333333333
+      }
+    ],
+    "bottomNumbers": [
+      {
+        "number": 50,
+        "count": 40,
+        "deviationFromMean": -13.06666666666667
+      },
+      {
+        "number": 70,
+        "count": 41,
+        "deviationFromMean": -12.06666666666667
+      },
+      {
+        "number": 77,
+        "count": 41,
+        "deviationFromMean": -12.06666666666667
+      },
+      {
+        "number": 12,
+        "count": 42,
+        "deviationFromMean": -11.06666666666667
+      },
+      {
+        "number": 15,
+        "count": 42,
+        "deviationFromMean": -11.06666666666667
+      },
+      {
+        "number": 65,
+        "count": 43,
+        "deviationFromMean": -10.06666666666667
+      },
+      {
+        "number": 67,
+        "count": 43,
+        "deviationFromMean": -10.06666666666667
+      },
+      {
+        "number": 78,
+        "count": 43,
+        "deviationFromMean": -10.06666666666667
+      },
+      {
+        "number": 87,
+        "count": 43,
+        "deviationFromMean": -10.06666666666667
+      },
+      {
+        "number": 24,
+        "count": 44,
+        "deviationFromMean": -9.06666666666667
+      }
+    ]
+  },
+  "serialOverlapTest": {
+    "adjacentPairs": 795,
+    "observedAdjacentOverlapTotal": 288,
+    "observedMeanOverlap": 0.3622641509433962,
+    "nullExpectedMeanOverlap": 0.4,
+    "observedPairsWithAtLeastTwoSharedNumbers": 31,
+    "nullProbabilityPerAdjacentPair": 0.049631005297771424,
+    "nullExpectedPairsWithAtLeastTwo": 39.45664921172828,
+    "exactTwoSidedP": 0.19067837188948808
+  },
+  "pairCooccurrenceTest": {
+    "candidatePairs": 4005,
+    "totalObservedPairOccurrences": 11940,
+    "expectedOccurrencesPerPair": 2.9812734082397006,
+    "observedMaximumPairCount": 11,
+    "topPairs": [
+      {
+        "pair": [
+          55,
+          80
+        ],
+        "count": 11
+      },
+      {
+        "pair": [
+          69,
+          73
+        ],
+        "count": 11
+      },
+      {
+        "pair": [
+          8,
+          79
+        ],
+        "count": 10
+      },
+      {
+        "pair": [
+          1,
+          73
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          5,
+          80
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          7,
+          69
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          13,
+          23
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          26,
+          51
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          30,
+          43
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          31,
+          59
+        ],
+        "count": 9
+      }
+    ],
+    "nullMaximumPairCountP95": 13,
+    "simulations": 10000,
+    "selectionAdjustedMonteCarloP": 0.6583341665833417,
+    "method": "In ogni replica si simula l intera serie e si registra la coppia piu frequente tra tutte le coppie possibili."
+  },
+  "multiplicity": {
+    "method": "Holm correction over the three omnibus test families reported here",
+    "tests": [
+      {
+        "name": "frequenze marginali 1-90 (Pearson omnibus, due code)",
+        "rawP": 0.5569721513924304,
+        "holmAdjustedP": 1
+      },
+      {
+        "name": "sovrapposizione di almeno 2 numeri tra estrazioni consecutive",
+        "rawP": 0.19067837188948808,
+        "holmAdjustedP": 0.5720351156684642
+      },
+      {
+        "name": "massima frequenza di una coppia fra tutte le 4005 coppie",
+        "rawP": 0.6583341665833417,
+        "holmAdjustedP": 1
+      }
+    ]
+  },
+  "interpretation": "Controlli omnibus di casualita, non una dimostrazione di capacita predittiva futura. Ogni anomalia richiederebbe replica prospettica indipendente.",
+  "reproducibility": {
+    "seed": 20260929,
+    "simulations": 20000,
+    "independentVerificationSeed": 2760936932,
+    "independentVerificationSimulations": 20000,
+    "pairSimulationSeed": 1024005245,
+    "pairSimulations": 10000
+  }
+}
