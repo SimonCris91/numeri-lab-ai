@@ -30,6 +30,7 @@ function renderPicks() {
   const numbers = item?.predictions?.inner_planets_12 || [];
   $('#picks').innerHTML = numbers.map((number) => `<span class="pick">${String(number).padStart(2, '0')}</span>`).join('');
   renderHistoryChecks(wheel, numbers);
+  renderMovement(wheel);
 }
 
 function checkNumbers(rows, numbers, getActual, label) {
@@ -51,6 +52,33 @@ function renderHistoryChecks(wheel, lottoNumbers) {
     const numbers = superForward.nextPrediction || [];
     $('#se-number-checks').innerHTML = checkNumbers(superHistory.rows, numbers, (row) => row.actual, 'SuperEnalotto');
   }
+}
+
+function lottoInnerRows() {
+  const rowsPerModel = Math.floor(lotto.rows.length / lotto.methods.length);
+  return lotto.rows.slice(rowsPerModel * 2, rowsPerModel * 3);
+}
+
+function frequencyRows(rows, windowSize, limit) {
+  const recentRows = rows.slice(-windowSize);
+  const counts = Array.from({ length: 90 }, (_, index) => ({ number: index + 1, count: 0 }));
+  recentRows.forEach((row) => row.actual.forEach((number) => { counts[number - 1].count += 1; }));
+  const ranked = counts.filter((item) => item.count > 0)
+    .sort((a, b) => b.count - a.count || a.number - b.number)
+    .slice(0, limit);
+  const maxCount = ranked[0]?.count || 1;
+  return ranked.map((item) => `<div class="frequency-row"><strong>${String(item.number).padStart(2, '0')}</strong><i style="width:${Math.round((item.count / maxCount) * 100)}%"></i><span>${item.count}</span></div>`).join('');
+}
+
+function renderMovement(wheel) {
+  const rows = lottoInnerRows().filter((row) => row.wheel === wheel);
+  const latest = rows.at(-1);
+  if (!latest) return;
+  $('#latest-wheel').textContent = wheel;
+  $('#latest-date').textContent = latest.date || '—';
+  $('#latest-numbers').innerHTML = latest.actual.map((number) => `<span>${String(number).padStart(2, '0')}</span>`).join('');
+  $('#recent-12').innerHTML = frequencyRows(rows, 12, 8);
+  $('#recent-52').innerHTML = frequencyRows(rows, 52, 10);
 }
 
 async function init() {
