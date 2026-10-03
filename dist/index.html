@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09131f" />
+    <meta name="description" content="Numeri Lab AI: analisi, test e coincidenze numeriche verificabili." />
+    <title>Numeri Lab AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="topbar shell">
+      <a class="brand" href="#top" aria-label="Numeri Lab AI home">
+        <span class="brand-mark">N<span>°</span></span>
+        <span><strong>Numeri Lab</strong><small>AI research studio</small></span>
+      </a>
+      <nav class="nav" aria-label="Navigazione principale">
+        <a href="#overview">Panoramica</a>
+        <a href="#models">Modelli</a>
+        <a href="#signals">Segnali</a>
+      </nav>
+      <div class="status-pill"><i></i><span id="data-status">Caricamento dati</span></div>
+    </header>
+
+    <main id="top" class="shell">
+      <section class="hero" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow">RESEARCH / 03 OTT 2026</p>
+          <h1>Esplora i numeri.<br /><em>Verifica le coincidenze.</em></h1>
+          <p class="lede">Un laboratorio per analizzare giochi numerici, pattern storici e ipotesi astronomiche con protocolli leggibili e test riproducibili.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#models">Esplora i modelli <span>↓</span></a><a class="text-link" href="#method">Come leggiamo i dati →</a></div>
+        </div>
+        <div class="orbital-card" aria-label="Indicatore del laboratorio">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="core">N<span>°</span></div><span class="satellite satellite-a"></span><span class="satellite satellite-b"></span>
+          <div class="orbital-caption"><span>LIVE STUDY</span><strong>Ipotesi → evidenza</strong></div>
+        </div>
+      </section>
+
+      <section class="stat-grid" id="signals">
+        <article class="stat-card accent"><span class="stat-label">Miglior segnale Lotto</span><strong id="best-hit">—</strong><span id="best-hit-note">Analisi in corso</span></article>
+        <article class="stat-card"><span class="stat-label">Estrazioni analizzate</span><strong id="draw-count">—</strong><span>11 ruote · Lotto</span></article>
+        <article class="stat-card"><span class="stat-label">Test SuperEnalotto</span><strong id="se-progress">—</strong><span>protocollo prospettico</span></article>
+        <article class="stat-card"><span class="stat-label">Confidenza del laboratorio</span><strong class="muted-value">Esplorativa</strong><span>nessuna promessa di vincita</span></article>
+      </section>
+
+      <section class="section-heading" id="models"><div><p class="eyebrow">MODEL ROOM</p><h2>Modelli sotto osservazione</h2></div><span class="section-note">Hit principali · confronto con il caso</span></section>
+      <section class="model-layout">
+        <article class="panel model-panel"><div class="panel-top"><div><span class="tag tag-highlight">LEADING SIGNAL</span><h3 id="leading-model">—</h3></div><div class="score" id="leading-score">—</div></div><p class="panel-description">Il modello attualmente più interessante nello storico Lotto. Il punteggio resta un indizio: la verifica decisiva è quella prospettica.</p><div class="bar-wrap"><div class="bar-label"><span>Hit osservati</span><strong id="leading-hits">—</strong></div><div class="bar"><i id="leading-bar"></i></div><div class="bar-label subtle"><span>Attesi dal caso</span><span id="leading-expected">—</span></div></div><div class="model-meta"><span>p corretto <b id="leading-p">—</b></span><span>look-ahead <b>OFF</b></span></div></article>
+        <article class="panel list-panel"><div class="panel-top"><h3>Confronto rapido</h3><span class="mono">LOTTO / 2022—2026</span></div><div id="model-list" class="model-list"></div></article>
+      </section>
+
+      <section class="section-heading picks-heading"><div><p class="eyebrow">NEXT OBSERVATION</p><h2>Prossima finestra</h2></div><div class="wheel-select"><label for="wheel">Ruota</label><select id="wheel"></select></div></section>
+      <section class="panel picks-panel"><div class="picks-top"><div><span class="tag">MODELLO PIANETI INTERNI</span><h3 id="selected-wheel">Bari</h3></div><span class="mono">5 numeri · ordine crescente</span></div><div id="picks" class="picks"></div><div class="picks-foot"><span>Predizione calcolata sullo storico disponibile</span><span class="warning-dot">Solo simulazione</span></div></section>
+
+      <section class="method-section" id="method"><div class="method-copy"><p class="eyebrow">RESEARCH NOTE</p><h2>Il metodo prima del risultato.</h2><p>Numeri Lab AI separa ciò che è stato osservato da ciò che resta da verificare. I modelli non vengono modificati dopo aver visto l’estrazione: ogni confronto mantiene finestra storica, baseline e regole fissate.</p></div><div class="method-steps"><div><span>01</span><strong>Raccogli</strong><small>Archivio e provenienza</small></div><div><span>02</span><strong>Testa</strong><small>Modello contro il caso</small></div><div><span>03</span><strong>Congela</strong><small>Forward test senza ritocchi</small></div></div></section>
+      <section class="disclaimer"><span class="lock">◈</span><p><strong>Nota di trasparenza</strong> — I risultati sono analisi statistiche esplorative. Non costituiscono previsione affidabile, consiglio finanziario o garanzia di vincita. Giocare, se mai, solo con budget che si è disposti a perdere.</p></section>
+    </main>
+    <footer class="footer shell"><span>Numeri Lab AI · research studio</span><span>Fonti e protocolli conservati localmente</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
