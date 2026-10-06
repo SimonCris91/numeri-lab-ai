@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    name: Node tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check lotto-astronomy.mjs
+          node --check lotto-astronomy-v2.mjs
+          node --check superenalotto-astronomy.mjs
+          node --check superenalotto-forward-update.mjs
+      - name: Run unit tests
+        run: |
+          node --test lotto-astronomy.test.mjs
+          node --test superenalotto-astronomy.test.mjs
+          node --test superenalotto-forward-update.test.mjs
+      - name: Verify deploy bundle
+        run: |
+          test -f dist/index.html
+          test -f dist/app.js
+          test -f dist/styles.css
