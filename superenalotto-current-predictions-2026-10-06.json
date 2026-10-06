@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "title": "Numeri Lab AI — aggiornamento sestine SuperEnalotto",
+  "generatedAt": "2026-10-06T17:03:40Z",
+  "targetContest": {
+    "number": 160,
+    "date": "2026-10-06"
+  },
+  "historyThrough": "2026-10-03",
+  "sourceStatus": "Le estrazioni del 1, 2 e 3 ottobre 2026 sono state verificate nell'archivio ufficiale il 6 ottobre 2026.",
+  "sourceUrl": "https://www.superenalotto.it/archivio-estrazioni/2026/ottobre",
+  "drawsUsed": [
+    {
+      "date": "2026-10-01",
+      "contest": 157,
+      "numbers": [
+        5,
+        12,
+        28,
+        41,
+        56,
+        66
+      ],
+      "jolly": 73,
+      "superstar": 42
+    },
+    {
+      "date": "2026-10-02",
+      "contest": 158,
+      "numbers": [
+        2,
+        31,
+        55,
+        56,
+        73,
+        84
+      ],
+      "jolly": 77,
+      "superstar": 41
+    },
+    {
+      "date": "2026-10-03",
+      "contest": 159,
+      "numbers": [
+        5,
+        12,
+        18,
+        25,
+        28,
+        42
+      ],
+      "jolly": 66,
+      "superstar": 76
+    }
+  ],
+  "model": {
+    "name": "integrated_12_52_104_208_z_decade_cap_3",
+    "sourceFile": "superenalotto-integrated-walk-forward.mjs",
+    "windows": [
+      12,
+      52,
+      104,
+      208
+    ],
+    "scoring": "Media dei quattro z-score di frequenza rispetto a p=6/90; massimo 3 numeri per decade; spareggio per numero crescente.",
+    "baseline": "frequency_52_decade_cap_3",
+    "noLookAhead": true,
+    "verification": "Il ricalcolo riproduce le sestine già registrate dal repository dopo l'estrazione del 1 ottobre, prima di aggiungere i risultati del 2 e 3 ottobre."
+  },
+  "calculations": {
+    "inputHistoryLastDate": "2026-10-03",
+    "integrated": [
+      2,
+      7,
+      12,
+      18,
+      28,
+      85
+    ],
+    "frequency52": [
+      2,
+      8,
+      12,
+      16,
+      18,
+      28
+    ],
+    "randomComparator": {
+      "seed": 20260930,
+      "ticket": [
+        21,
+        38,
+        43,
+        63,
+        79,
+        90
+      ],
+      "role": "controllo casuale, non modello predittivo"
+    }
+  },
+  "interpretation": "Risultato sperimentale. I test storici del progetto non hanno mostrato un vantaggio predittivo rispetto al caso; non è una previsione affidabile né una garanzia di vincita."
+}
